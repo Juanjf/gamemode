@@ -1,0 +1,3 @@
+# gamemode
+dsa
+sd
