@@ -1,3 +1,1 @@
 # gamemode
-dsa
-sd

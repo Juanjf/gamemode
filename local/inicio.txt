@@ -1,0 +1,172 @@
+package com.snap;
+
+
+
+import org.bukkit.ChatColor;
+import org.bukkit.Sound;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+import org.bukkit.event.Listener;
+import org.bukkit.plugin.Plugin;
+import org.bukkit.plugin.java.JavaPlugin;
+
+import com.snap.events.events;
+import com.snap.menu.menu;
+
+public class start extends JavaPlugin implements Listener {
+	
+	public static Plugin instance;
+	private Player p;
+	@Override
+	public void onEnable() {
+		instance = this;	
+		new events();
+		getLogger().info("SimpleGamemode - v2.2");
+		getConfig().options().copyDefaults(true);
+		saveDefaultConfig();
+
+	
+	}
+	
+	
+	
+	
+	@Override
+	public void onDisable() {
+		System.out.print(ChatColor.RED + "SimpleGamemode Se ha desactivado correctamente!");
+	}
+	
+	@SuppressWarnings("deprecation")
+	public boolean onCommand(CommandSender sender, Command cmd, String label, final String [] args) {
+		
+		if(cmd.getName().equalsIgnoreCase("gm")) {
+			if(sender instanceof Player) {
+				String openmenu = getConfig().getString("openmenu");
+				sender.sendMessage(ChatColor.translateAlternateColorCodes('&', openmenu));
+				Player p = (Player)sender;
+				menu.openMenus(p);
+				p.getPlayer().playSound(p.getPlayer().getLocation(), Sound.BLOCK_CHEST_OPEN, 1, 1);
+
+				
+					  }
+			return true;
+		}
+		if(cmd.getName().equalsIgnoreCase("heal")) {
+			if(sender instanceof Player) {
+			    
+				
+				String heal = getConfig().getString("heal");
+				p = (Player)sender;
+				p.setHealth(20);
+				sender.sendMessage(ChatColor.translateAlternateColorCodes('&', heal));
+				String arg1 = null;
+				p.sendTitle(ChatColor.translateAlternateColorCodes('&', heal), arg1);
+				p.getPlayer().playSound(p.getPlayer().getLocation(), Sound.ENTITY_CHICKEN_EGG, 1, 1);
+				return true;
+			}
+		}
+		if(cmd.getName().equalsIgnoreCase("food")) {
+			if(sender instanceof Player) {
+			    
+				
+				String food = getConfig().getString("food");
+				p = (Player)sender;
+				p.setFoodLevel(30);
+				sender.sendMessage(ChatColor.translateAlternateColorCodes('&', food));
+				String arg1 = null;
+				p.sendTitle(ChatColor.translateAlternateColorCodes('&', food), arg1);
+				p.getPlayer().playSound(p.getPlayer().getLocation(), Sound.ENTITY_PLAYER_BURP, 1, 1);
+				return true;
+			}
+		}
+		if(cmd.getName().equalsIgnoreCase("sversion")) {
+			if(sender instanceof Player) {
+				String gmversion = getConfig().getString("gmversion");
+				Player p = (Player)sender;
+				sender.sendMessage(ChatColor.translateAlternateColorCodes('&', gmversion));
+			    p.sendMessage(ChatColor.GOLD +"https://www.spigotmc.org/resources/simplegamemode.35663/");
+				return true;
+			}
+		}
+		if(cmd.getName().equalsIgnoreCase("shelp")) {
+			if(sender instanceof Player) {
+				Player p = (Player)sender;
+				p.sendMessage("§9---------------- §6Commands §9--------------------");
+				p.sendMessage("§c/gm §e>> §aThe menu will open to choose any gamemode");
+			    p.sendMessage("§c/heal §e>> §aRegenerate health and food");
+			    p.sendMessage("§c/food §e>> §aFill your food bar");
+			    p.sendMessage("§c/gmreload §e>> §aReload the config");
+			    p.sendMessage("§c/shelp §e>> §aList of commands");
+			    p.sendMessage("§c/sversion §e>> §aShow the version of the plugin");
+				p.sendMessage("§9------------- §6Page 2 - /gmhelp2§9 ----------------");
+			    
+				return true;
+			}
+		}
+		if(cmd.getName().equalsIgnoreCase("shelp2")) {
+			if(sender instanceof Player) {
+				Player p = (Player)sender;
+				p.sendMessage("§9--------------- §6Commands Page 2 §9---------------");
+			    p.sendMessage("§c/sun §e>> §aRain off");
+			    p.sendMessage("§c/rain §e>> §aRain on");
+			    p.sendMessage("§c/storm §e>> §aRain with thunder on");
+
+				p.sendMessage("§9----------------------------------------------");
+			    
+				return true;
+			}
+		}
+		if(cmd.getName().equalsIgnoreCase("sun")) {
+			if(sender instanceof Player) {
+				
+				this.getServer().getWorlds().get(0).setStorm(false);
+				this.getServer().getWorlds().get(0).setThundering(false);
+				String gmsun = getConfig().getString("gmsun");
+				sender.sendMessage(ChatColor.translateAlternateColorCodes('&', gmsun));
+			    
+				return true;
+			}
+		}
+		if(cmd.getName().equalsIgnoreCase("rain")) {
+			if(sender instanceof Player) {
+				this.getServer().getWorlds().get(0).setStorm(true);
+				this.getServer().getWorlds().get(0).setThundering(false);
+				String gmrain = getConfig().getString("gmrain");
+				sender.sendMessage(ChatColor.translateAlternateColorCodes('&', gmrain));
+
+			    
+				return true;
+			}
+		}
+		if(cmd.getName().equalsIgnoreCase("storm")) {
+			if(sender instanceof Player) {
+				this.getServer().getWorlds().get(0).setStorm(true);
+				this.getServer().getWorlds().get(0).setThundering(true);
+				String gmstorm = getConfig().getString("gmstorm");
+				sender.sendMessage(ChatColor.translateAlternateColorCodes('&', gmstorm));
+				Player p = (Player)sender;
+				p.getPlayer().playSound(p.getPlayer().getLocation(), Sound.ENTITY_LIGHTNING_BOLT_THUNDER, 1, 1);
+
+
+
+			    
+				return true;
+			}
+		}
+		
+		Player player = (Player) sender;
+	    if(player.hasPermission("gm.reload"));
+	    reloadConfig();
+	    String configreload = getConfig().getString("configreload");
+		sender.sendMessage(ChatColor.translateAlternateColorCodes('&', configreload));
+		getLogger().info("Config successfully reloaded");
+	    return true;
+			
+
+		
+	}
+
+		
+	}
+

@@ -1,0 +1,45 @@
+name: SimpleGamemode
+main: com.snap.start
+version: 2.2
+commands:
+   gm:
+      description: Change your gamemode in an easier way!
+      usage: /<command>
+      permission: gm.gamemode
+      usage: /<command>
+   gmreload:
+      description: Reload the config and Simplegamemode
+      usage: /<command>
+      permission: gm.reload
+      usage: /<command>
+   heal:
+      description: Regenerate your life
+      usage: /<command>
+      permission: gm.heal
+      usage: /<command>
+   food:
+      description: Regenerate your food bar
+      usage: /<command>
+      permission: gm.food
+      usage: /<command>
+   sversion:
+      description: Plugin version
+      usage: /<command>
+   shelp:
+      description: Commands menu
+      usage: /<command>
+   shelp2:
+      description: Commands menu page 2
+      usage: /<command>
+   sun:
+      description: Rain off
+      usage: /<command>
+      permission: gm.sun
+   storm:
+      description: Rain
+      usage: /<command>
+      permission: gm.rain
+   rain:
+      description: Rain with thunder
+      usage: /<command>
+      permission: gm.rain  

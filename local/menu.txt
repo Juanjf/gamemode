@@ -1,0 +1,123 @@
+package com.snap.menu;
+
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
+import org.bukkit.Material;
+import org.bukkit.entity.Player;
+import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
+
+public class menu {
+
+	public static void openMenus(Player p) {
+		
+		
+		ItemStack item0 = new ItemStack(Material.IRON_BLOCK);
+		ItemMeta meta0 = item0.getItemMeta();
+		meta0.setDisplayName(ChatColor.RED + "Survival Mode");
+		item0.setItemMeta(meta0);
+
+		ItemStack item1 = new ItemStack(Material.GOLD_BLOCK);
+		ItemMeta meta1 = item1.getItemMeta();
+		meta1.setDisplayName(ChatColor.RED + "Adventure Mode");
+		item1.setItemMeta(meta1);
+		
+		ItemStack item2 = new ItemStack(Material.DIAMOND_BLOCK);
+		ItemMeta meta2 = item2.getItemMeta();
+		meta2.setDisplayName(ChatColor.RED + "Creative Mode");
+		item2.setItemMeta(meta2);
+		
+		ItemStack item3 = new ItemStack(Material.OBSIDIAN);
+		ItemMeta meta3 = item3.getItemMeta();
+		meta3.setDisplayName(ChatColor.RED + "Spectador Mode");
+		item3.setItemMeta(meta3);
+		
+	//	ItemStack item4 = new ItemStack(Material.GRAY_STAINED_GLASS_PANE);
+	//	ItemMeta meta4 = item4.getItemMeta();
+	//	meta4.setDisplayName(ChatColor.GRAY + "Locked");
+	//	item4.setItemMeta(meta4);
+		
+		//ItemStack item5 = new ItemStack(Material.BARRIER);
+		//ItemMeta meta5 = item5.getItemMeta();
+		//meta5.setDisplayName(ChatColor.BLUE + "Close SimpleGamemode");
+		//item5.setItemMeta(meta5);
+		
+		ItemStack item6 = new ItemStack(Material.BREAD);
+		ItemMeta meta6 = item6.getItemMeta();
+		meta6.setDisplayName(ChatColor.GOLD + "Full Food?");
+		item6.setItemMeta(meta6);
+		
+		ItemStack item7 = new ItemStack(Material.APPLE);
+		ItemMeta meta7 = item7.getItemMeta();
+		meta7.setDisplayName(ChatColor.GOLD + "Full Heal?");
+		item7.setItemMeta(meta7);
+		
+		ItemStack item8 = new ItemStack(Material.REDSTONE);
+		ItemMeta meta8 = item8.getItemMeta();
+		meta8.setDisplayName(ChatColor.RED + "Rain off");
+		item8.setItemMeta(meta8);
+		
+		ItemStack item9 = new ItemStack(Material.SUGAR);
+		ItemMeta meta9 = item9.getItemMeta();
+		meta9.setDisplayName(ChatColor.GREEN + "Rain on");
+		item9.setItemMeta(meta9);
+		
+		ItemStack item10 = new ItemStack(Material.GLOWSTONE_DUST);
+		ItemMeta meta10 = item10.getItemMeta();
+		meta10.setDisplayName(ChatColor.GOLD + "Thunder on");
+		item10.setItemMeta(meta10);
+		
+		ItemStack item11 = new ItemStack(Material.REDSTONE_BLOCK);
+		ItemMeta meta11 = item11.getItemMeta();
+		meta11.setDisplayName(ChatColor.GOLD + "Particles?");
+		item11.setItemMeta(meta11);
+		
+		Inventory inventario = Bukkit.createInventory(null, 18, ChatColor.BLUE + "SimpleGamemode");
+		
+		inventario.setItem(0, item0);
+		inventario.setItem(2, item1);
+		inventario.setItem(4, item2);
+		inventario.setItem(6, item3);
+		inventario.setItem(8, item11);
+
+		//		inventario.setItem(9, item4);
+//		inventario.setItem(11, item4);
+	//	inventario.setItem(12, item4);
+		//		inventario.setItem(27, item5);
+		//		inventario.setItem(6, item4);
+	//	inventario.setItem(14, item4);
+		//		inventario.setItem(15, item4);
+	//	inventario.setItem(1, item4);
+	//			inventario.setItem(2, item4);
+	//	inventario.setItem(3, item4);
+	//	inventario.setItem(7, item4);
+	//	inventario.setItem(5, item4);
+	//	inventario.setItem(13, item4);
+	//			inventario.setItem(19, item4);
+	//			inventario.setItem(20, item4);
+		//		inventario.setItem(23, item4);
+		//		inventario.setItem(21, item4);
+		//		inventario.setItem(24, item4);
+		//		inventario.setItem(25, item4);
+		//		inventario.setItem(35, item4);
+		//		inventario.setItem(28, item4);
+		//		inventario.setItem(17, item4);
+		//		inventario.setItem(18, item4);
+		//		inventario.setItem(31, item4);
+		inventario.setItem(9, item6);
+		inventario.setItem(10, item7);
+		inventario.setItem(15, item8);
+		inventario.setItem(16, item9);
+		inventario.setItem(17, item10);
+		//		inventario.setItem(26, item4);
+
+		
+		p.openInventory(inventario); 
+		
+	}
+	
+
+	}
+
+

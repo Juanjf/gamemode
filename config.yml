@@ -1,0 +1,46 @@
+#Welcome to the SimpleGamemode config. Here you can edit the messages sent by the plugin!. This plugin has been created by Snaaaap
+#Please any kind of error in the plugin notify on the spigot page https://www.spigotmc.org/threads/simplegamemode.214126/
+#Here some codes a,b,c,d,e,f,0,1,2,3,4,5,6,7,8,9 - ☺,☹,❤,★,☢,✿,♞,☂,✪,✖,✔- If you wish to contact us quickly please enter here https://shotbow.net/forum/members/snaaaap.2352646/
+#####If you need a translation in the menu please contact me!
+
+###############
+###IMPORTANT###
+############### 
+
+#This plugin is currently in version 1.13, due to lack of time it stops updating. When upgrading to 3.0 will be added more editable texts!
+
+
+
+#All commands /gmhelp and /gmhelp2!
+
+##This message appears when you place the /gm command
+openmenu: '&eNow you can choose your game mode!'
+
+##When you load the add-on you will see this message /gmreload
+configreload: '&aConfiguration Reloaded ✔!'
+
+##This message appears when it heals you /heal
+heal: '&bHas been cured &4❤'
+
+
+##Fill your food bar /food
+food: '&6Your food bar is full' 
+
+##Plugin Version /gmversion
+gmversion: '&eVersion 2.0'
+
+##Rain off
+gmsun: '&cRain off :)'
+
+##Rain
+gmrain: '&aRain on! ✔'
+
+##Rain with thunder on/off
+gmstorm: '&aRain with thunder on! ✔'
+
+
+
+
+
+
+############## ENJOY! #############

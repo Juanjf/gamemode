@@ -1,0 +1,151 @@
+package com.snap.events;
+
+
+
+
+
+
+
+
+import org.bukkit.ChatColor;
+import org.bukkit.Effect;
+import org.bukkit.GameMode;
+import org.bukkit.Material;
+import org.bukkit.Particle;
+import org.bukkit.Sound;
+import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemStack;
+
+import com.snap.start;
+
+
+
+
+
+
+
+
+public class events implements Listener{
+	
+	public events() {
+		start.instance.getServer().getPluginManager().registerEvents(this, start.instance);
+	}
+
+	@SuppressWarnings("deprecation")
+	@EventHandler
+	public void onInteract(InventoryClickEvent e) {
+		Player p = (Player)e.getWhoClicked(); {
+		ItemStack clicked = e.getCurrentItem();
+		Inventory inv = e.getInventory();
+		if(inv.getName().equals(ChatColor.BLUE + "SimpleGamemode")) {
+			if(clicked.getType() == Material.IRON_BLOCK) {
+				p.getPlayer().playSound(p.getPlayer().getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 1, 1);
+				p.setGameMode(GameMode.SURVIVAL);
+				p.sendMessage(ChatColor.BLUE +"Your game mode has been changed");
+				p.setHealth(20);
+				p.setFoodLevel(20);
+				e.setCancelled(true);
+				String arg1 = null;
+				p.sendTitle(ChatColor.BLUE + "Survival Mode", arg1);
+				p.closeInventory();
+			} else 	if(clicked.getType() == Material.GOLD_BLOCK) {
+				p.getPlayer().playSound(p.getPlayer().getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 1, 1);
+				p.setGameMode(GameMode.ADVENTURE);
+				p.sendMessage(ChatColor.BLUE +"Your game mode has been changed");
+				p.setHealth(20);
+				p.setFoodLevel(20);
+				e.setCancelled(true);
+				String arg1 = null;
+				p.sendTitle(ChatColor.BLUE + "Adventure Mode", arg1);
+				p.closeInventory();
+			} else 	if(clicked.getType() == Material.DIAMOND_BLOCK) {
+				p.getPlayer().playSound(p.getPlayer().getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 1, 1);
+				p.setGameMode(GameMode.CREATIVE);
+				p.sendMessage(ChatColor.BLUE + "Your game mode has been changed");
+				e.setCancelled(true);
+				String arg1 = null;
+				p.sendTitle(ChatColor.BLUE + "Creative Mode", arg1);
+				p.closeInventory();
+			} else 	if(clicked.getType() == Material.OBSIDIAN) {
+				p.getPlayer().playSound(p.getPlayer().getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 1, 1);
+				p.setGameMode(GameMode.SPECTATOR);
+				p.sendMessage(ChatColor.BLUE + "Your game mode has been changed");
+				e.setCancelled(true);
+				String arg1 = null;
+				p.sendTitle(ChatColor.BLUE + "Spectator Mode", arg1);
+				p.closeInventory();
+			} else 	if(clicked.getType() == Material.BREAD) {
+				p.getPlayer().playSound(p.getPlayer().getLocation(), Sound.ENTITY_PLAYER_BURP, 1, 1);
+				p.setFoodLevel(30);
+				p.sendMessage(ChatColor.GOLD + "Your food bar is full");
+				e.setCancelled(false);
+				p.closeInventory();
+			} else 	if(clicked.getType() == Material.APPLE) {
+				p.getPlayer().playSound(p.getPlayer().getLocation(), Sound.ENTITY_CHICKEN_EGG, 1, 1);
+				p.setHealth(20);
+				p.setFoodLevel(30);
+				p.sendMessage(ChatColor.GREEN + "Has been cured!");
+				e.setCancelled(false);
+				p.closeInventory();
+			} else 	if(clicked.getType() == Material.REDSTONE) {
+				p.getServer().getWorlds().get(0).setStorm(false);
+				p.getServer().getWorlds().get(0).setThundering(false);
+				p.sendMessage(ChatColor.GREEN + "Rain off!");
+				e.setCancelled(false);
+				p.closeInventory();
+			} else 	if(clicked.getType() == Material.SUGAR) {
+				p.getPlayer().playSound(p.getPlayer().getLocation(), Sound.ENTITY_LIGHTNING_BOLT_THUNDER, 1, 1);
+				p.getServer().getWorlds().get(0).setStorm(true);
+				p.getServer().getWorlds().get(0).setThundering(false);
+				p.sendMessage(ChatColor.RED + "Rain On!");
+				e.setCancelled(false);
+				p.closeInventory();
+			} else 	if(clicked.getType() == Material.GLOWSTONE_DUST) {
+				p.getPlayer().playSound(p.getPlayer().getLocation(), Sound.ENTITY_LIGHTNING_BOLT_THUNDER, 1, 1);
+				p.getServer().getWorlds().get(0).setStorm(true);
+				p.getServer().getWorlds().get(0).setThundering(true);
+				p.sendMessage(ChatColor.GOLD + "Rain Thunder On!");
+				e.setCancelled(false);
+				p.closeInventory();
+			} else 	if(clicked.getType() == Material.REDSTONE_BLOCK) {
+				p.getPlayer().spawnParticle(Particle.HEART, p.getPlayer().getLocation(), (int) 0.5, 0.5, 0.5, 0.5);
+				p.getPlayer().spawnParticle(Particle.HEART, p.getPlayer().getLocation(), (int) 3, 2, 2, 3);
+				p.getPlayer().spawnParticle(Particle.HEART, p.getPlayer().getLocation(), (int) 1, 1, 1, 1);
+				p.getPlayer().spawnParticle(Particle.HEART, p.getPlayer().getLocation(), (int) 4, 4, 4, 4);
+				p.getPlayer().spawnParticle(Particle.HEART, p.getPlayer().getLocation(), (int) 6, 6, 6, 6);
+				p.getPlayer().playEffect(p.getPlayer().getLocation(), Effect.MOBSPAWNER_FLAMES, 500);
+				p.getPlayer().playEffect(p.getPlayer().getLocation(), Effect.MOBSPAWNER_FLAMES, 500);
+				p.getPlayer().playEffect(p.getPlayer().getLocation(), Effect.MOBSPAWNER_FLAMES, 500);
+				p.getPlayer().playEffect(p.getPlayer().getLocation(), Effect.MOBSPAWNER_FLAMES, 500);
+				p.getPlayer().playEffect(p.getPlayer().getLocation(), Effect.SMOKE, 500);
+				p.getPlayer().playEffect(p.getPlayer().getLocation(), Effect.MOBSPAWNER_FLAMES, 500);
+				p.getPlayer().playEffect(p.getPlayer().getLocation(), Effect.MOBSPAWNER_FLAMES, 500);
+				p.getPlayer().playSound(p.getPlayer().getLocation(), Sound.ENTITY_CHICKEN_EGG, 1, 1);
+				p.sendMessage(ChatColor.RED+ "Hearts and Flame particles, soon more particles :))");
+				e.setCancelled(true);
+				p.closeInventory();
+			}// else 	if(clicked.getType() == Material.GRAY_STAINED_GLASS_PANE) {
+				// p.getPlayer().playSound(p.getPlayer().getLocation(), Sound.BLOCK_CHEST_CLOSE, 1, 1);
+			//	p.getPlayer().playSound(p.getPlayer().getLocation(), Sound.ENTITY_VILLAGER_NO, 1, 1);
+			//	e.setCancelled(true);
+			//	p.closeInventory();
+				//} else 	if(clicked.getType() == Material.GRAY_STAINED_GLASS_PANE) {
+				//	e.setCancelled(true);
+				//	p.closeInventory();
+				//	p.getPlayer().playSound(p.getPlayer().getLocation(), Sound.ENTITY_VILLAGER_NO, 1, 1);
+				
+				
+			
+				
+			}
+
+		}
+		}
+}
+
+
+//}
